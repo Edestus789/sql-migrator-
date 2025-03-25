@@ -15,7 +15,7 @@ func NewMockSQLStorage() *MockSQLStorage {
 	}
 }
 
-func (m *MockSQLStorage) Connect(ctx context.Context) error {
+func (m *MockSQLStorage) Connect(_ context.Context) error {
 	return nil
 }
 
@@ -23,11 +23,11 @@ func (m *MockSQLStorage) Close() error {
 	return nil
 }
 
-func (m *MockSQLStorage) Lock(ctx context.Context) error {
+func (m *MockSQLStorage) Lock(_ context.Context) error {
 	return nil
 }
 
-func (m *MockSQLStorage) Unlock(ctx context.Context) error {
+func (m *MockSQLStorage) Unlock(_ context.Context) error {
 	return nil
 }
 

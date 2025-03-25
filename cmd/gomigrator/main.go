@@ -63,7 +63,7 @@ func main() {
 	}
 
 	l := logger.New()
-	db := storage.New(database, l)
+	db := storage.NewPostgresStorage(database, l)
 	application := app.New(l, db)
 
 	switch command {
