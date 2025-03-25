@@ -28,7 +28,7 @@ type Migration struct {
 	DownGo           func(ctx context.Context) error
 }
 
-func NewMigration(name, status string, version int, statusChangeTime time.Time) IMigration {
+func CreateMigration(name, status string, version int, statusChangeTime time.Time) IMigration {
 	return &Migration{
 		Name:             name,
 		Status:           status,

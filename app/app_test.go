@@ -60,7 +60,7 @@ func TestUpDownMigration(t *testing.T) {
 	})
 
 	// Добавляем миграцию со статусом "success"
-	successMigration := storage.NewMigration(migrationName, storage.StatusSuccess, 1, time.Now())
+	successMigration := storage.CreateMigration(migrationName, storage.StatusSuccess, 1, time.Now())
 	if err := mockStorage.InsertMigration(context.Background(), successMigration); err != nil {
 		t.Fatalf("Failed to insert migration: %v", err)
 	}

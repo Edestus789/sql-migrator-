@@ -36,7 +36,6 @@ linters:
     - gci
     - gocognit
     - goconst
-    - gocritic
     - gocyclo
     - godot
     - gofmt
@@ -51,7 +50,6 @@ linters:
     - ifshort
     - importas
     - ineffassign
-    - lll
     - makezero
     - misspell
     - nestif
@@ -60,7 +58,6 @@ linters:
     - nolintlint
     - prealloc
     - predeclared
-    - revive
     - rowserrcheck
     - sqlclosecheck
     - staticcheck

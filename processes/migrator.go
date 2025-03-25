@@ -150,7 +150,8 @@ func (m *Migrator) Down(ctx context.Context) error {
 			m.logger.Warn("Нет успешных миграций для отката")
 			return nil
 		}
-		m.logger.Error("Ошибка при получении последней успешной миграции: %v", err)
+		m.logger.Error("Ошибка при получении "+
+			"последней успешной миграции: %v", err)
 		return err
 	}
 
@@ -261,17 +262,22 @@ func (m *Migrator) Status(ctx context.Context) error {
 		return ErrGetStatus
 	}
 
-	m.logger.Info("._____________________._____________________._____________________.")
-	m.logger.Info("| %-19s | %-19s | %-19s |", "Название", "Статус", "Время")
+	border := "._____________________._____________________._____________________."
+	header := fmt.Sprintf("| %-19s | %-19s | %-19s |",
+		"Название", "Статус", "Время")
+	m.logger.Info(border)
+	m.logger.Info(header)
 
 	for _, migr := range migrations {
 		formatMigration := fmt.Sprintf("| %-19s | %-19s | %s |",
-			migr.GetName(), migr.GetStatus(), migr.GetStatusChangeTime().Format("2006-01-02 15:04:05"))
+			migr.GetName(),
+			migr.GetStatus(),
+			migr.GetStatusChangeTime().Format("2006-01-02 15:04:05"))
 
 		m.logger.Info(formatMigration)
 	}
 
-	m.logger.Info("|_____________________|_____________________|_____________________|")
+	m.logger.Info(border)
 	return nil
 }
 
