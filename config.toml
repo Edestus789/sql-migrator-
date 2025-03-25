@@ -1,0 +1,8 @@
+[migrator]
+dsn = "postgresql://postgres:postgres@localhost:5432/gomigrator?sslmode=disable" # DSN connection string to DB
+dir = "./migrations"
+type = "sql"
+table_name = "migrations"
+
+[logger]
+level = "INFO"
